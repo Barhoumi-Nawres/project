@@ -8,12 +8,12 @@ repos:
   meta-raspberrypi:
     url: https://git.yoctoproject.org/meta-raspberrypi
     branch: scarthgap
-    path: layers/meta-raspberrypi
+    path: meta-raspberrypi
 
   openembedded-core:
     url: https://git.openembedded.org/openembedded-core
     branch: scarthgap
-    path: layers/openembedded-core
+    path: openembedded-core
     layers:
       meta:
 
@@ -21,14 +21,14 @@ repos:
   meta-openembedded:
     url: https://git.openembedded.org/meta-openembedded
     branch: scarthgap
-    path: layers/meta-openembedded
+    path: meta-openembedded
     layers:
       meta-oe:
       meta-python:
 
   bitbake:
     url: https://git.openembedded.org/bitbake
-    path: layers/openembedded-core/bitbake
+    path: openembedded-core/bitbake
     branch: "2.8"
     layers:
       bitbake: disabled
@@ -36,17 +36,17 @@ repos:
   meta-yocto:
     url: https://git.yoctoproject.org/meta-yocto
     branch: scarthgap
-    path: layers/meta-yocto
+    path: meta-yocto
     layers:
       meta-yocto-bsp:
 
 
   meta-rpi-bsp:
-    path: layers/meta-rpi-bsp
+    path: meta-rpi-bsp
   meta-rpi-distro:
-    path: layers/meta-rpi-distro
+    path: meta-rpi-distro
   meta-rpi-prj:
-    path: layers/meta-rpi-prj
+    path: meta-rpi-prj
 
 
 local_conf_header:
