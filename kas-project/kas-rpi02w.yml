@@ -2,8 +2,8 @@ header:
   version: 4
 
 machine: raspberrypi0-2w-64
-distro: none
-target: none
+distro: distro-rpi
+target: dev-rpi-image-minimal
 repos:
   meta-raspberrypi:
     url: https://git.yoctoproject.org/meta-raspberrypi
