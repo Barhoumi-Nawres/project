@@ -1,0 +1,7 @@
+
+build/
+kas/
+meta-openembedded/
+meta-raspberrypi/
+meta-yocto/
+openembedded-core/
