@@ -1,9 +1,9 @@
 header:
-  version: 4
+  version: 14
 
 machine: raspberrypi0-2w-64
 distro: distro-rpi
-target: dev-rpi-image-minimal
+target: image-dev
 repos:
   meta-raspberrypi:
     url: https://git.yoctoproject.org/meta-raspberrypi
@@ -50,10 +50,6 @@ repos:
 
 
 local_conf_header:
-  standard: |
-    PACKAGE_CLASSES = "package_ipk"
-  makes-an-image-suitable-for-debugging:  |
-     IMAGE_FEATURES += "debug-tweaks"
   diskom: |
      BB_DISKMON_DIRS ??= "\
       STOPTASKS,${TMPDIR},1G,100K \
@@ -76,6 +72,16 @@ local_conf_header:
     BUILDHISTORY_COMMIT = "0"
     BUILDHISTORY_FEATURES = "image"
     BUILDHISTORY_DIR ?= "${TOPDIR}/buildhistory"
+  for-raspberrypi: |
+    LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
+
+  type-image: |
+    IMAGE_FSTYPES ="wic"
+  wks-file: |
+    WKS_FILE="rpi.wks"
+
+  SBOM: |
+    INHERIT += "create-spdx"
 
 bblayers_conf_header:
   custom-bblayers-conf: |
