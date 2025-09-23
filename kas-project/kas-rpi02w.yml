@@ -82,6 +82,7 @@ local_conf_header:
 
   SBOM: |
     INHERIT += "create-spdx"
+    SPDX_PRETTY = "1"
 
 bblayers_conf_header:
   custom-bblayers-conf: |
