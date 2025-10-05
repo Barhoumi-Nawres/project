@@ -69,16 +69,12 @@ local_conf_header:
     SSTATE_DIR = "/work/sstate-cache"
   build-history: |
     INHERIT += "buildhistory"
-    BUILDHISTORY_COMMIT = "0"
-    BUILDHISTORY_FEATURES = "image"
-    BUILDHISTORY_DIR ?= "${TOPDIR}/buildhistory"
+    BUILDHISTORY_COMMIT = "1"
   for-raspberrypi: |
     LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
 
   type-image: |
     IMAGE_FSTYPES ="wic"
-  wks-file: |
-    WKS_FILE="rpi.wks"
 
   SBOM: |
     INHERIT += "create-spdx"
