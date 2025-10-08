@@ -69,4 +69,12 @@ sudo picocom -b 115200 -r -l /dev/ttyUSB0
 ### Test Development image:
 
 ![TEST graph](test.png)
+
+#### test rpi login with encrypted password :
+
+![RPI login](rpi-login.png)
+
+
+
 ![raspberry image](raspberrypi02w.jpg)
+
