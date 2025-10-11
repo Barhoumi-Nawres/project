@@ -119,3 +119,25 @@ rmmod hello
 
 ![kernel-module test](kernel-module.png)
 
+
+
+### Boot time optimization:
+
+Remove unecessary features:
+
+(CONFIG_PRINTK=n) will have the same effect as the quiet command line argument
+but you won’t have any access to kernel messages
+
+This is done by  opening the kernel menuconfig, 
+disable the features, and saving the configuration to the defconfig file.
+
+
+# Adding Data partition :
+Using wks file (kickstart file).
+
+The partition was mounted automatically because we specified the mountpoint .
+In other case  you can the mount point using Fstab file .
+
+
+
+![partitions](wic.png)
