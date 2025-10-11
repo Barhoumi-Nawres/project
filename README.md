@@ -75,6 +75,47 @@ sudo picocom -b 115200 -r -l /dev/ttyUSB0
 ![RPI login](rpi-login.png)
 
 
+#### Testing the board with new machine :
+meta-rpi-bsp/conf/machine/*.conf:
+This configuration file provides details about the device you are adding.
+This file define things such as  the kernel package to use, 
+image format, machine features, any bootloader information, target arch ...e.g. 
+
+Result:
+
+```bash
+distro-rpi reference  distribution for Raspberry pi 2025.09 rpi0-2w ttyS0
+
+rpi0-2w login: root
+root@rpi0-2w:~#
+root@rpi0-2w:~#
+
+```
 
 ![raspberry image](raspberrypi02w.jpg)
+
+
+
+### Kernel Module recipe :
+Setup:
+-Create module directory under recipes-kernel:
+-Create Recipe for kernel module 
+-Create files subdirectory contain hello.c and Makefile
+-Add the package hello-mod to the image recipe by the varaibel (IMAGE_INSTALL:append)
+
+Test :
+To load the kernel module :
+
+```bash
+modprobe hello 
+```
+
+* To unload the module  
+
+
+```bash
+rmmod hello 
+```
+
+![kernel-module test](kernel-module.png)
 
