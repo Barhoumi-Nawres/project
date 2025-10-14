@@ -1,7 +1,7 @@
 header:
   version: 14
 
-machine: raspberrypi0-2w-64
+machine: rpi0-2w
 distro: distro-rpi
 target: image-dev
 repos:
@@ -40,6 +40,10 @@ repos:
     layers:
       meta-yocto-bsp:
 
+  meta-rauc:
+    url: https://github.com/rauc/meta-rauc
+    branch: scarthgap
+    path: meta-rauc
 
   meta-rpi-bsp:
     path: meta-rpi-bsp
@@ -63,7 +67,6 @@ local_conf_header:
 
   conf-version: |
     CONF_VERSION = "2"
-
   sstate-cache-anddownloads: |
     DL_DIR = "/work/downloads"
     SSTATE_DIR = "/work/sstate-cache"
@@ -72,9 +75,6 @@ local_conf_header:
     BUILDHISTORY_COMMIT = "1"
   for-raspberrypi: |
     LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
-
-  type-image: |
-    IMAGE_FSTYPES ="wic"
 
   SBOM: |
     INHERIT += "create-spdx"

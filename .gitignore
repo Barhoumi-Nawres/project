@@ -6,6 +6,7 @@ meta-openembedded/
 meta-raspberrypi/
 meta-yocto/
 openembedded-core/
+meta-rauc/
 .kas_shell_history
 downloads/
 sstate-cache/
