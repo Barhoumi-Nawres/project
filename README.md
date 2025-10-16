@@ -20,14 +20,17 @@ SD Card (16 GB)
 ### Project Goals :
 
 -Prepare KAS yml file for all layers ans local configuration file .
+
 -Develop BSP layer 
+
 -Develop Distro layer without using Poky (from scratch).
+
 -Create images (for development and production )
+
 -......etc 
 
 ## Setup process : 
 Kas makes the setup of yocto build environment super simple and fast .
-
 
 
   1.install kas :
@@ -68,11 +71,11 @@ sudo picocom -b 115200 -r -l /dev/ttyUSB0
 
 ### Test Development image:
 
-![TEST graph](test.png)
+![TEST graph](Images/test.png)
 
 #### test rpi login with encrypted password :
 
-![RPI login](rpi-login.png)
+![RPI login](Images/rpi-login.png)
 
 
 #### Testing the board with new machine :
@@ -92,7 +95,7 @@ root@rpi0-2w:~#
 
 ```
 
-![raspberry image](raspberrypi02w.jpg)
+![raspberry image](Images/raspberrypi02w.jpg)
 
 
 
@@ -117,7 +120,7 @@ modprobe hello
 rmmod hello 
 ```
 
-![kernel-module test](kernel-module.png)
+![kernel-module test](Images/kernel-module.png)
 
 
 
@@ -140,4 +143,54 @@ In other case  you can the mount point using Fstab file .
 
 
 
-![partitions](wic.png)
+![partitions](Images/wic.png)
+
+
+### OTA update (RAUC):
+#### Rauc Concept:
+
+#### Steps :
+-Add meta-rauc to bblayers.conf
+ 
+-Add  a configuration file in recipes-core/rauc/files/system.conf that will define the RAUC configuration on the target
+
+-after that we append it to the recipe rauc-conf.bbappend
+
+-Create a partition number 2 for rootfs (file wks).
+
+-CReate a bundle image recipe for our update rauc 
+(the bundle image is Squashfs filesystem )
+ 
+-Create a certificate and a keyring to Rauc system.conf 
+(there is a script provide this )(meta-rauc/scripts/openssl-ca.sh).
+
+-Add the rauc client package to the image target .
+
+-build the bundle recipe 
+
+
+#### Configuration linux kernel 
+From the Linux kernel configuration point of view we only need
+ to add support for the SquashFS filesystem by enabling the CONFIG_SQUASHFS=y option.
+
+
+
+#### U-Boot and RAUC: Pre-requisites
+
+Install U-boot fw-utils on your filesystem, define u-boot environment offset in
+/etc/fw_env.config
+
+
+Updating with U-Boot :
+
+Add a boot script :
+meta-rpi-bsp/recipes-bsp/rpi-u
+Mainly based on three variables :
+
+BOOT_ORDER :which slot to boot first 
+
+![status of the system](Images/rauc.png)
+
+
+
+
