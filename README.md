@@ -165,8 +165,9 @@ In other case  you can the mount point using Fstab file .
 - build the bundle recipe 
 
 ####YOCTO Integration:
+- Add rauc to <code>DISTRO_FEATURES += "rauc"</code> in distro or (local) conf:
 - bundle image recipe 
-recipes-images/bundles/rpi-bundle.bb for Rauc upadates:
+<code>recipes-images/bundles/rpi-bundle.bb</code> for Rauc upadates:
  
 - Rauc supports two type of bundle format :plain and verity :
 
@@ -175,6 +176,8 @@ recipes-images/bundles/rpi-bundle.bb for Rauc upadates:
 RAUC_BUNDLE_FORMAT ?= "verity" 
 ```
 - Next step, Add a configuration file in recipes-core/rauc/files/system.conf that will define RAUC configuration on the target.
+
+Case 1:Updating only the rootfs :
 
 ```bash
 [system]
@@ -212,9 +215,6 @@ IMAGE_INSTALL += "rauc"
 - From the Linux kernel configuration point of view we only need
  to add support for the SquashFS filesystem by enabling the CONFIG_SQUASHFS=y option.
 
-
-
-
 #### U-Boot and RAUC: Pre-requisites
 
 - Install U-boot fw-utils on your filesystem, define u-boot environment offset in
@@ -230,4 +230,18 @@ Mainly based on three variables :
 - BOOT_ORDER :which slot to boot first 
 
 ![status of the system](Images/rauc.png)
+
+### Bundle information:
+
+<code>rauc info file.raucb</code>
+
+### Updating boot(kernel,dtb) +rootfs  partition :
+
+- Add second boot partition to WKS file .
+- Update the boot Script  .
+- Update rauc configuration .
+- Update the recipe bundle .
+
+ 
+
 
