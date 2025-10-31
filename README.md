@@ -167,6 +167,8 @@ In other case  you can the mount point using Fstab file .
 ### OTA update (RAUC):
 #### Rauc Concept:
 
+![A/B update model](Images/'AB update.png')
+
 #### Steps :
 - Add meta-rauc to bblayers.conf
 - Add  a configuration file in recipes-core/rauc/files/system.conf that will define the RAUC configuration on the target
