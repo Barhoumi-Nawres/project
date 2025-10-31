@@ -1,0 +1,22 @@
+#include <dt-bindings/gpio/gpio.h>
+
+/dts-v1/;
+/plugin/;
+
+/{
+   compatible = "brcm,bcm2835";
+   fragment@0 {
+	 target-path = "/";
+         __overlay__ {
+	              myled {
+                     compatible = "gpio-leds";
+
+                        myled {
+                           label = "myled";
+                            gpios = <&gpio 26 0>;  // GPIO 26, active high
+                            default-state = "off";
+                };
+            };
+        };
+    };
+};

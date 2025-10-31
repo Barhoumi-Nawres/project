@@ -98,9 +98,24 @@ root@rpi0-2w:~#
 
 ```
 
+
 ![raspberry image](Images/raspberrypi02w.jpg)
 
+###  Device tree overlay :
+- Create the DTS file (myled.dts)
+- Add the file to the kernel recipe <code> virtual/kernel.bbappend</code>
+- Copy the file dts from <code> WORKDIR</code> to  <code> ${S}/arch/arm/boot/dts/overlays/  </code>
+- Ensure the corresponding DTBo is included in the main<code> Makefile</code>
+- Add the DTBO name to the  <code>KERNEL_DEVICETREE (file machine.conf)</code> variable in your machine conf .
 
+   and that tells yocto what kernel device trees to build and ship into the boot partition so that u-boot load them into RAM while booting the board .
+ 
+- Enable overlay at boot 
+Add the following line to config.txt  <code> dtoverlay=myled</code> .
+#### Testing :
+Control it with :
+
+<img src="Images/test-dtb.png" width="400" alt="Device Tree Overlay Diagram"/>
 
 ### Kernel Module recipe :
 Setup:
