@@ -1,6 +1,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI += "file://defconfig \
+SRC_URI += "file://fragment.cfg \
 	    file://rauc.cfg \
             file://myled-overlay.dts \
 	   " 
