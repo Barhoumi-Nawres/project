@@ -15,4 +15,4 @@ IMAGE_FEATURES = " allow-empty-password allow-root-login empty-root-password ssh
 EXTRA_IMAGE_FEATURES ="dbg-pkgs debug-tweaks dev-pkgs"
 
 
-IMAGE_INSTALL:append = " systemd-analyze hello-mod rauc rauc-conf"
+IMAGE_INSTALL:append = " systemd-analyze hello-mod rauc rauc-conf dosfstools"
