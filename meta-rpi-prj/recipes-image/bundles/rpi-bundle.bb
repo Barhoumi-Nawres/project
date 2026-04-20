@@ -1,14 +1,30 @@
-DESCRIPTION = "bundle recipe"
+DESCRIPTION = "Bundle recipe"
 SUMMARY = "${DESCRIPTION}"
 
 inherit bundle
 
 RAUC_BUNDLE_COMPATIBLE = "${MACHINE}"
 RAUC_BUNDLE_VERSION = "${DISTRO_VERSION}"
-RAUC_BUNDLE_SLOTS ?= "rootfs"
-RAUC_SLOT_rootfs ?= "image-dev"
-RAUC_IMAGE_FSTYPE = "ext4"
-RAUC_BUNDLE_FORMAT ?= "verity"
+RAUC_BUNDLE_DESCRITION = "Rauc bundle for Raspberrypi02w"
 
+
+#Slot (rootfs)
+RAUC_BUNDLE_SLOTS ?= "rootfs"
+
+
+# For rootfs partition 
+RAUC_SLOT_rootfs ?= "image-dev"
+RAUC_SLOT_rootfs[type] = "image"
+RAUC_IMAGE_FSTYPE = "ext4"
+
+RAUC_BUNDLE_FORMAT ?= "verity"
 RAUC_KEY_FILE = "${THISDIR}/keys/development-1.key.pem"
 RAUC_CERT_FILE = "${THISDIR}/keys/development-1.cert.pem"
+
+
+
+
+
+
+
+
